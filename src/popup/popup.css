@@ -1,0 +1,312 @@
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 13px;
+  color: #1f2430;
+  background: #ffffff;
+}
+
+.app {
+  width: 360px;
+  max-height: 560px;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-header h1 {
+  font-size: 15px;
+  margin: 0;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  text-transform: capitalize;
+  color: #555;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #bbb;
+}
+
+.status-dot--running {
+  background: #2e7d32;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15);
+}
+.status-dot--completed {
+  background: #1565c0;
+}
+.status-dot--error {
+  background: #c62828;
+}
+.status-dot--stopped {
+  background: #ef6c00;
+}
+.status-dot--idle {
+  background: #9e9e9e;
+}
+
+.banner {
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  line-height: 1.4;
+}
+
+.banner--warning {
+  background: #fff4e5;
+  color: #8a5400;
+  border: 1px solid #ffd9a6;
+}
+
+.banner--error {
+  background: #fdecea;
+  color: #a82a1e;
+  border: 1px solid #f5c2bb;
+}
+
+.progress-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.progress-bar {
+  height: 6px;
+  background: #eee;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  background: #1565c0;
+  transition: width 0.25s ease;
+}
+
+.progress-message {
+  margin: 0;
+  font-size: 12px;
+  color: #444;
+}
+
+.progress-stats {
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+  color: #666;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 9px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn--primary {
+  background: #1565c0;
+  color: #fff;
+}
+
+.btn--secondary {
+  background: #ef6c00;
+  color: #fff;
+}
+
+.btn--outline {
+  background: transparent;
+  color: #1565c0;
+  border: 1px solid #1565c0;
+}
+
+.delay-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.delay-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.delay-inputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.delay-inputs input {
+  width: 70px;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.delay-separator {
+  color: #888;
+  font-size: 12px;
+}
+
+.delay-hint {
+  margin: 0;
+  font-size: 10px;
+  color: #999;
+}
+
+.results-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.results-heading {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+}
+
+.results-list {
+  max-height: 360px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.business-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: #fcfcfd;
+}
+
+.business-card__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.business-card__name {
+  font-weight: 600;
+  font-size: 12.5px;
+  color: #1f2430;
+}
+
+.business-card__rating {
+  font-size: 11px;
+  color: #b8860b;
+  white-space: nowrap;
+}
+
+.business-card__review-count {
+  color: #888;
+}
+
+.business-card__category {
+  font-size: 10.5px;
+  color: #1565c0;
+  text-transform: capitalize;
+}
+
+.business-card__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 2px;
+}
+
+.business-card__row {
+  font-size: 11px;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.business-card__row a {
+  color: #1565c0;
+  text-decoration: none;
+}
+
+.business-card__row a:hover {
+  text-decoration: underline;
+}
+
+.business-card__row--muted {
+  color: #777;
+  white-space: normal;
+}
+
+.business-card__description {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: #444;
+  line-height: 1.4;
+}
+
+.business-card__reviews-summary {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: #444;
+  line-height: 1.4;
+  background: #f4f7fc;
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+.business-card__reviews-summary-label {
+  font-weight: 600;
+  color: #1565c0;
+}
+
+.app-footer {
+  font-size: 10px;
+  color: #999;
+  text-align: center;
+  margin-top: 4px;
+}
