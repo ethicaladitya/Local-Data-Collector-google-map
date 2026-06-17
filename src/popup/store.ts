@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import type { Business, ExtractionDelayConfig, ExtractionProgress, RuntimeMessage } from '../types/business'
-import { getAllBusinesses } from '../db/indexedDb'
+import { clearBusinesses, getAllBusinesses } from '../db/indexedDb'
 import { downloadBusinessesCsv } from '../utils/csv'
 import { DEFAULT_DELAY_CONFIG } from '../types/business'
 import { clearRunState, getDelayConfig, getProgress, setDelayConfig, setProgress, setStopRequested } from '../utils/storage'
@@ -17,6 +17,7 @@ interface PopupState {
   init: () => Promise<void>
   start: () => Promise<void>
   stop: () => Promise<void>
+  clearData: () => Promise<void>
   refreshBusinesses: () => Promise<void>
   downloadCsv: () => Promise<void>
   setMinDelaySeconds: (value: number) => void
@@ -135,6 +136,12 @@ export const usePopupStore = create<PopupState>((set, get) => ({
     await clearRunState()
     const current = get().progress
     await setProgress({ ...current, status: 'stopped', message: 'Extraction stopped by user.' })
+  },
+
+  async clearData() {
+    await clearBusinesses()
+    await setProgress(idleProgress)
+    set({ businesses: [], progress: idleProgress, error: null })
   },
 
   async refreshBusinesses() {

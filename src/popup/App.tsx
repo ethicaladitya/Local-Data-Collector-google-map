@@ -72,6 +72,7 @@ export default function App() {
     init,
     start,
     stop,
+    clearData,
     downloadCsv,
     setMinDelaySeconds,
     setMaxDelaySeconds,
@@ -147,9 +148,21 @@ export default function App() {
         <button className="btn btn--secondary" onClick={stop} disabled={!isRunning}>
           Stop Extraction
         </button>
-        <button className="btn btn--outline" onClick={downloadCsv} disabled={businesses.length === 0}>
-          Download CSV ({businesses.length})
-        </button>
+        <div className="actions-row">
+          <button className="btn btn--outline" onClick={downloadCsv} disabled={businesses.length === 0}>
+            Download CSV ({businesses.length})
+          </button>
+          <button
+            className="btn btn--danger"
+            onClick={() => {
+              if (confirm('Clear all extracted data? This cannot be undone.')) clearData()
+            }}
+            disabled={isRunning || businesses.length === 0}
+            title="Delete all extracted records and reset"
+          >
+            Clear Data
+          </button>
+        </div>
       </div>
 
       {businesses.length > 0 && (

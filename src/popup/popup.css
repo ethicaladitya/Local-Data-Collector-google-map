@@ -153,6 +153,21 @@ body {
   border: 1px solid #1565c0;
 }
 
+.btn--danger {
+  background: transparent;
+  color: #c62828;
+  border: 1px solid #c62828;
+}
+
+.actions-row {
+  display: flex;
+  gap: 8px;
+}
+
+.actions-row .btn {
+  flex: 1;
+}
+
 .delay-section {
   display: flex;
   flex-direction: column;
